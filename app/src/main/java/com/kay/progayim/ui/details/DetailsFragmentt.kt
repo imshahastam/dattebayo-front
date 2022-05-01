@@ -30,6 +30,7 @@ class DetailsFragmentt : Fragment(R.layout.fragm_info) {
 
         binding.apply {
             val id = arguments?.getLong("id")!!
+
             val e = dbInstance.userDao().getById(id)
             courseName.text = e.login
             api.getById(id)
