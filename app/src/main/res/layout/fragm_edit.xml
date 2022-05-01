@@ -15,55 +15,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintBottom_toTopOf="@+id/login"
         />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/name"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
         android:hint="@string/name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/lastname"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/lastname"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
         android:inputType="text"
         android:hint="@string/lastname"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/age"
-        />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:inputType="number"
-        android:hint="@string/age"
-        app:layout_constraintTop_toBottomOf="@+id/lastname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/gender"
-        />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:inputType="number"
-        android:hint="@string/gender"
-        app:layout_constraintTop_toBottomOf="@+id/age"
+        app:layout_constraintTop_toBottomOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/passwd"
@@ -76,7 +50,7 @@
         android:paddingHorizontal="20dp"
         android:inputType="number"
         android:hint="@string/password"
-        app:layout_constraintTop_toBottomOf="@+id/gender"
+        app:layout_constraintTop_toBottomOf="@id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/btn"

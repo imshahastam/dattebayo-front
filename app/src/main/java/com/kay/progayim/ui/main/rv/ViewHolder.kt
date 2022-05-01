@@ -10,18 +10,19 @@ import com.kay.progayim.databinding.RecycleBinding
 
 class ViewHolder(private val binding: RecycleBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(ch : Courses) {
+    fun bind(courses : Courses) {
         with(binding){
-            Glide.with(itemView.context).load(ch.image).into(img)
-            courseName.text = ch.name
-            description.text = ch.status
-            teacher.text = ch.species
+
+            Glide.with(itemView.context).load(R.drawable.heart).into(img)
+            courseName.text = courses.name
+            description.text = courses.status
+            teacher.text = courses.species
 
         }
     }
 
     companion object {
-        fun create(parent: ViewGroup, listener: CharacterAdapter.Listener):ViewHolder {
+        fun create(parent: ViewGroup, listener: CoursesAdapter.Listener):ViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.recycle,parent,false)
 
             val binding = RecycleBinding.bind(view)

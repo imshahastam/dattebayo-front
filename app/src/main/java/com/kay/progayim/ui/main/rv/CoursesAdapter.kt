@@ -4,8 +4,9 @@ import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kay.progayim.data.models.Courses
+import com.kay.progayim.ui.main.MainFragment
 
-class CharacterAdapter(private val listener: Listener): RecyclerView.Adapter<ViewHolder>() {
+class CoursesAdapter(private val listener: MainFragment): RecyclerView.Adapter<ViewHolder>() {
 
     private var list = listOf<Courses>()
 

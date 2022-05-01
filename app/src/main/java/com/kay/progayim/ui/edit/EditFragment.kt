@@ -1,25 +1,20 @@
-package com.kay.progayim.ui.registration
+package com.kay.progayim.ui.edit
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.kay.progayim.Injector
 import com.kay.progayim.R
-import com.kay.progayim.data.models.User
-import com.kay.progayim.databinding.FragmRegistBinding
+import com.kay.progayim.databinding.FragmEditBinding
 import com.kay.progayim.ui.OnClick
-import com.kay.progayim.ui.details.DetailsFragment
 
-class RegistrationFragment : Fragment(R.layout.fragm_regist) {
-    private var binding1 : FragmRegistBinding? = null
+class EditFragment : Fragment(R.layout.fragm_edit) {
+    private var binding1 : FragmEditBinding? = null
     private val binding get() = binding1!!
-    private lateinit var listener : OnClick
     private val dbInstance get() = Injector.database
-    private val api get() = Injector.api
-
+    private lateinit var listener : OnClick
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as OnClick
@@ -27,18 +22,18 @@ class RegistrationFragment : Fragment(R.layout.fragm_regist) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
-        binding1 = FragmRegistBinding.bind(view)
+        binding1 = FragmEditBinding.bind(view)
 
         binding.apply {
             btn.setOnClickListener {
+                val id = arguments?.getLong("id")!!
+                val e = dbInstance.userDao().getById(id)
+                if (login.text.toString().isNotEmpty() && email.text.toString().isNotEmpty() && passwd.text.toString().isNotEmpty()) {
+                    e.login = login.text.toString()
+                    e.email = email.text.toString()
+                    e.password = passwd.toString()
 
-                if (name.text.toString().isNotEmpty() && email.text.toString().isNotEmpty() &&  passwd.text.toString().isNotEmpty()) {
-                    val e = User(
-                        login = name.text.toString(),
-                        email = email.text.toString(),
-                        password = passwd.text.toString()
-                    )
-                    dbInstance.userDao().insert(e)
+                    dbInstance.userDao().update(e)
                     requireActivity().onBackPressed()
                 }
                 else{
@@ -46,6 +41,7 @@ class RegistrationFragment : Fragment(R.layout.fragm_regist) {
                 }
             }
         }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

@@ -20,7 +20,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     private val rickAndMortyRepo = OnlineCoursesRepo(
-        getApplication<App>().rickAndMortyApi,
+        getApplication<App>().api,
         getApplication<App>().database.courseDao(),
         getApplication<App>().database.userDao()
     )

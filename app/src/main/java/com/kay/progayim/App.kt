@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 class App : Application() {
 
     private val isDebug get() = BuildConfig.DEBUG
-    lateinit var rickAndMortyApi: OnlineCoursesApi
+    lateinit var api: OnlineCoursesApi
     lateinit var database: AppDatabase
 
     override fun onCreate() {
@@ -24,6 +24,7 @@ class App : Application() {
 
         database = Room.databaseBuilder(this, AppDatabase::class.java, "database")
             .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
             .build()
             mInstance = this
 
@@ -42,7 +43,7 @@ class App : Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        rickAndMortyApi = retrofit.create(OnlineCoursesApi::class.java)
+        api = retrofit.create(OnlineCoursesApi::class.java)
     }
 
     private fun httpLoggingInterceptor(): HttpLoggingInterceptor {

@@ -14,16 +14,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kay.progayim.databinding.FragmMainBinding
 import com.kay.progayim.ui.details.DetailsFragment
 import com.kay.progayim.ui.OnClick
-import com.kay.progayim.ui.main.rv.CharacterAdapter
+import com.kay.progayim.ui.main.rv.CoursesAdapter
 
-class MainFragment: Fragment(), CharacterAdapter.Listener {
+class MainFragment: Fragment(), CoursesAdapter.Listener {
 
     private var _binding: FragmMainBinding? = null
     private val binding: FragmMainBinding
     get() = _binding!!
     private lateinit var listener: OnClick
     private lateinit var mainVM : MainViewModel
-    private val chAdapter: CharacterAdapter = CharacterAdapter(this)
+    private val chAdapter: CoursesAdapter = CoursesAdapter(this)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -59,13 +59,14 @@ class MainFragment: Fragment(), CharacterAdapter.Listener {
             recycler.layoutManager = layoutManager
             recycler.adapter = chAdapter
             recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
+
+
         }
     }
 
     private fun subscribeToLD(){
         mainVM.coursesLiveData.observe(viewLifecycleOwner, {
             chAdapter.setData(it)
-            Log.e("id","llgggl")
         })
 
 //        mainVM.event.observe(viewLifecycleOwner, {
