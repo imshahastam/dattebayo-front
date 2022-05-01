@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/regLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/regLogin"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="@string/login"
+        android:paddingHorizontal="20dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/regEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/regEmail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:inputType="text"
+        android:hint="@string/email"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/regLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/regPasswd"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/regPasswd"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/regEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Sign up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regPasswd" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
